@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservations — Marksplinter Vineyard</title>
+  <meta name="description" content="Reserve a tasting at Marksplinter Vineyard in Dundee, Oregon. Choose from four bookable spaces across the estate, from the covered Terrace to the private Barrel Room." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ==============================================================
+       SCHEDULING HAND-OFF  ← change this ONE line to point at your
+       colleagues' scheduling / tasting-room booking app.
+       Every "Reserve" button on this page hands off to it, each
+       passing its own ?venue=<id> so the scheduler knows which
+       space was chosen. (Also passes ?winery=marksplinter.)
+
+       This is OPTION 1 (redirect / link-out) — the visible flow.
+       OPTION 2 (embedded widget, keeps Marksplinter branding) lives
+       UNLINKED at /embed.html — reachable only if you know the URL.
+       ============================================================== -->
+  <script>
+    // Base URL of the external booking system your software suite provides.
+    // Swap this value for the real scheduling component URL.
+    window.MARKSPLINTER_BOOKING_URL = "https://scheduling.example/book";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-booking-link]").forEach(function (a) {
+        var url = new URL(window.MARKSPLINTER_BOOKING_URL, window.location.origin);
+        url.searchParams.set("winery", "marksplinter");
+        var venue = a.getAttribute("data-venue");
+        if (venue) url.searchParams.set("venue", venue);
+        a.setAttribute("href", url.toString());
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="test-banner">Demo site · Marksplinter Vineyard is a fictional winery used for software testing</div>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Marksplinter<small>Vineyard · Dundee Hills</small></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="wines.html">Our Wines</a></li>
+        <li><a href="club.html">Wine Club</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="visit.html" class="active nav-cta">Visit Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero page-hero--visit">
+    <div class="container">
+      <p class="eyebrow">Dundee, Oregon</p>
+      <h1>Reservations</h1>
+      <p>Four ways to sit and sip across the estate — pick the spot that suits your afternoon, then reserve your time.</p>
+    </div>
+  </section>
+
+  <!-- ===== Intro ===== -->
+  <section>
+    <div class="container centered">
+      <p class="eyebrow">Choose Your Spot</p>
+      <h2>Every seat has a view</h2>
+      <p>Whether you want the buzz of the covered Terrace or a quiet table among the barrels, each of our spaces is bookable online. Appointments start at 11:00 am, Thursday through Sunday, with weekday visits by request. Reservations are recommended — walk-ins are welcome as space allows.</p>
+      <p style="color:var(--stone); font-size:.9rem; margin-top:1rem;">Every view is figurative and best experienced in a staging environment.</p>
+    </div>
+  </section>
+
+  <!-- ===== Bookable spaces ===== -->
+  <section class="section--alt">
+    <div class="container">
+      <div class="grid grid--2">
+
+        <article class="wine-card" id="terrace">
+          <div class="wine-card__img" style="height:200px; background-image:url('images/terrace-view.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">Covered · Outdoor</span>
+            <h3 class="wine-card__name">The Terrace</h3>
+            <p class="wine-card__appellation">Seats up to 6 · 45 minutes · $30 / guest</p>
+            <p class="wine-card__notes">Our classic seated tasting on the covered terrace, looking straight down the valley. A flight of five current releases, rain or shine.</p>
+            <div class="wine-card__foot">
+              <span style="font-size:.85rem; color:var(--stone);">Thu–Sun, 11–5</span>
+              <a href="https://scheduling.example/book?winery=marksplinter&venue=terrace"
+                 data-booking-link data-venue="terrace"
+                 class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wine-card" id="hilltop-deck">
+          <div class="wine-card__img" style="height:200px; background-image:url('images/field-hills.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">Open Air · Outdoor</span>
+            <h3 class="wine-card__name">The Hilltop Deck</h3>
+            <p class="wine-card__appellation">Seats up to 8 · 60 minutes · $45 / guest</p>
+            <p class="wine-card__notes">An open-air deck at the top of the estate block with 180° views of the Dundee Hills. Best at golden hour with a reserve flight in hand.</p>
+            <div class="wine-card__foot">
+              <span style="font-size:.85rem; color:var(--stone);">Fri–Sun, 11–5</span>
+              <a href="https://scheduling.example/book?winery=marksplinter&venue=hilltop-deck"
+                 data-booking-link data-venue="hilltop-deck"
+                 class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wine-card" id="barrel-room">
+          <div class="wine-card__img" style="height:200px; background-image:url('images/barrel-room.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">Private · Indoor</span>
+            <h3 class="wine-card__name">The Barrel Room</h3>
+            <p class="wine-card__appellation">Seats up to 10 · 90 minutes · $85 / guest</p>
+            <p class="wine-card__notes">A private, seated tasting among the barrels in our working cellar. Library and single-block reserves poured by a member of the family, with a local cheese board.</p>
+            <div class="wine-card__foot">
+              <span style="font-size:.85rem; color:var(--stone);">By appointment</span>
+              <a href="https://scheduling.example/book?winery=marksplinter&venue=barrel-room"
+                 data-booking-link data-venue="barrel-room"
+                 class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wine-card" id="orchard-table">
+          <div class="wine-card__img" style="height:200px; background-image:url('images/orchard.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">Shaded · Outdoor</span>
+            <h3 class="wine-card__name">The Orchard Table</h3>
+            <p class="wine-card__appellation">Seats up to 4 · 60 minutes · $35 / guest</p>
+            <p class="wine-card__notes">A single shaded table tucked into the heirloom apple orchard. Relaxed and unhurried — pour your flight, spread out a picnic, and stay a while.</p>
+            <div class="wine-card__foot">
+              <span style="font-size:.85rem; color:var(--stone);">Thu–Sun, 11–5</span>
+              <a href="https://scheduling.example/book?winery=marksplinter&venue=orchard-table"
+                 data-booking-link data-venue="orchard-table"
+                 class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="centered" style="margin-top:44px;">
+        <p style="color:var(--stone);">Not sure which to choose? Start a general reservation and pick your space at booking.</p>
+        <a href="https://scheduling.example/book?winery=marksplinter"
+           data-booking-link
+           class="btn ext" target="_blank" rel="noopener">Book a Tasting</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Hours / directions / contact ===== -->
+  <section>
+    <div class="container">
+      <div class="info-grid">
+        <div>
+          <p class="eyebrow">Hours</p>
+          <h3>Thursday – Sunday</h3>
+          <p style="color:var(--stone);">11:00 am – 5:00 pm<br />Weekday visits by appointment<br />Reservations recommended</p>
+        </div>
+        <div>
+          <p class="eyebrow">Find Us</p>
+          <h3>Dundee Hills</h3>
+          <p style="color:var(--stone);">14200 NE Marksplinter Lane<br />Dundee, Oregon 97115<br />35 minutes from Portland</p>
+        </div>
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h3>Say Hello</h3>
+          <p style="color:var(--stone);">(503) 555-0142<br /><a href="mailto:visit@marksplintervineyard.example">visit@marksplintervineyard.example</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Private groups form ===== -->
+  <section class="section--alt">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Private &amp; Large Groups</p>
+        <h2>Planning something special?</h2>
+        <p>For parties larger than our listed spaces, private events, or weddings, send us a note and our hospitality team will build something just for you. For standard tastings, please reserve a space above.</p>
+        <p style="color:var(--stone);">Prefer to talk it through? Call us at (503) 555-0142.</p>
+      </div>
+      <form class="form" onsubmit="event.preventDefault(); this.reset(); document.getElementById('form-msg').style.display='block';">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="date">Preferred date</label>
+        <input id="date" name="date" type="date" />
+
+        <label for="party">Party size</label>
+        <select id="party" name="party">
+          <option>1–4 guests</option>
+          <option>5–8 guests</option>
+          <option>9–12 guests</option>
+          <option>12+ guests</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your visit..."></textarea>
+
+        <button type="submit" class="btn btn--solid">Send Request</button>
+        <p id="form-msg" style="display:none; color:var(--gold-dark); margin-top:14px;">Thanks! This demo form doesn't send anywhere — but your software can watch this submit event.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Marksplinter Vineyard</div>
+          <p>14200 NE Marksplinter Lane<br />Dundee, Oregon 97115</p>
+          <p>(503) 555-0142<br /><a href="mailto:hello@marksplintervineyard.example">hello@marksplintervineyard.example</a></p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="wines.html">Our Wines</a></li>
+            <li><a href="club.html">Wine Club</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reserve a Space</h4>
+          <ul>
+            <li><a href="visit.html#terrace">The Terrace</a></li>
+            <li><a href="visit.html#hilltop-deck">The Hilltop Deck</a></li>
+            <li><a href="visit.html#barrel-room">The Barrel Room</a></li>
+            <li><a href="visit.html#orchard-table">The Orchard Table</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Marksplinter Vineyard — a fictional demo site. Please enjoy responsibly.</span>
+        <span>Willamette Valley, Oregon</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

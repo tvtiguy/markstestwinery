@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserve · Embedded Booking (preview) — Marksplinter Vineyard</title>
+  <!-- Hidden from crawlers: this is an internal integration-preview page. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="test-banner">Demo site · Marksplinter Vineyard is a fictional winery used for software testing</div>
+  <div class="hidden-note">
+    Option 2 · Embedded-widget integration preview — not linked anywhere on the site; reachable only at /embed.html if you know it.
+  </div>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Marksplinter<small>Vineyard · Dundee Hills</small></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="wines.html">Our Wines</a></li>
+        <li><a href="club.html">Wine Club</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="visit.html" class="nav-cta">Visit Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero" style="min-height:34vh;">
+    <div class="container">
+      <p class="eyebrow">Reservations · Powered in-page</p>
+      <h1>Reserve a Tasting</h1>
+      <p>Book without ever leaving Marksplinter — the entire flow stays in the winery's own branding.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container widget-wrap">
+
+      <!-- ============================================================
+           SCHEDULER EMBED SLOT
+           Replace everything inside .widget with your scheduling
+           component's real embed / <iframe> / web component.
+           The mock below shows the target look & the data it collects:
+           venue, date, time, party size.
+           ============================================================ -->
+      <div class="widget" id="booking-widget">
+        <div class="widget__head">
+          <h3>Book Your Visit</h3>
+          <p>Marksplinter Vineyard · Dundee Hills, Oregon</p>
+        </div>
+        <div class="widget__body">
+          <div class="slot-hint">◇ Mock widget — swap this block for your scheduler's embed. It emits <code>marksplinter:reservation</code> on confirm.</div>
+
+          <p class="widget__step-label">1 · Choose your space</p>
+          <div class="venue-options" id="venue-options">
+            <button type="button" class="venue-opt" data-venue="terrace">
+              <strong>The Terrace</strong><span>Covered outdoor · up to 6 · $30</span>
+            </button>
+            <button type="button" class="venue-opt" data-venue="hilltop-deck">
+              <strong>The Hilltop Deck</strong><span>Open air · up to 8 · $45</span>
+            </button>
+            <button type="button" class="venue-opt" data-venue="barrel-room">
+              <strong>The Barrel Room</strong><span>Private indoor · up to 10 · $85</span>
+            </button>
+            <button type="button" class="venue-opt" data-venue="orchard-table">
+              <strong>The Orchard Table</strong><span>Shaded outdoor · up to 4 · $35</span>
+            </button>
+          </div>
+
+          <p class="widget__step-label">2 · Pick a date &amp; time</p>
+          <div class="field-row">
+            <div>
+              <label for="w-date">Date</label>
+              <input id="w-date" type="date" />
+            </div>
+            <div>
+              <label for="w-time">Time</label>
+              <select id="w-time">
+                <option>11:00 am</option>
+                <option>12:00 pm</option>
+                <option>1:00 pm</option>
+                <option>2:00 pm</option>
+                <option>3:00 pm</option>
+                <option>4:00 pm</option>
+              </select>
+            </div>
+            <div>
+              <label for="w-party">Guests</label>
+              <select id="w-party">
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn--solid widget__confirm" id="w-confirm">Confirm Reservation</button>
+
+          <div class="widget__summary" id="w-summary"></div>
+        </div>
+      </div>
+
+      <p class="centered" style="margin-top:28px; color:var(--stone); font-size:.9rem;">
+        Compare with the current-market flow on the <a href="visit.html">Reservations page</a>, where "Reserve" redirects out to an external scheduler.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Marksplinter Vineyard</div>
+          <p>14200 NE Marksplinter Lane<br />Dundee, Oregon 97115</p>
+          <p>(503) 555-0142<br /><a href="mailto:hello@marksplintervineyard.example">hello@marksplintervineyard.example</a></p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="wines.html">Our Wines</a></li>
+            <li><a href="club.html">Wine Club</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reserve a Space</h4>
+          <ul>
+            <li><a href="visit.html#terrace">The Terrace</a></li>
+            <li><a href="visit.html#hilltop-deck">The Hilltop Deck</a></li>
+            <li><a href="visit.html#barrel-room">The Barrel Room</a></li>
+            <li><a href="visit.html#orchard-table">The Orchard Table</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Marksplinter Vineyard — a fictional demo site. Please enjoy responsibly.</span>
+        <span>Willamette Valley, Oregon</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var VENUE_LABELS = {
+        "terrace": "The Terrace",
+        "hilltop-deck": "The Hilltop Deck",
+        "barrel-room": "The Barrel Room",
+        "orchard-table": "The Orchard Table"
+      };
+      var selectedVenue = null;
+      var opts = document.querySelectorAll(".venue-opt");
+
+      function selectVenue(el) {
+        opts.forEach(function (o) { o.classList.remove("selected"); });
+        el.classList.add("selected");
+        selectedVenue = el.getAttribute("data-venue");
+      }
+      opts.forEach(function (o) { o.addEventListener("click", function () { selectVenue(o); }); });
+
+      // Deep-link support: /embed.html?venue=barrel-room pre-selects a space,
+      // so a per-venue link-out could instead feed this embedded widget (Option 3).
+      var params = new URLSearchParams(window.location.search);
+      var pv = params.get("venue");
+      if (pv) {
+        var match = document.querySelector('.venue-opt[data-venue="' + pv + '"]');
+        if (match) selectVenue(match);
+      }
+
+      document.getElementById("w-confirm").addEventListener("click", function () {
+        var summary = document.getElementById("w-summary");
+        if (!selectedVenue) {
+          summary.style.display = "block";
+          summary.innerHTML = "Please choose a space above to continue.";
+          return;
+        }
+        var detail = {
+          winery: "marksplinter",
+          venue: selectedVenue,
+          date: document.getElementById("w-date").value || "(not set)",
+          time: document.getElementById("w-time").value,
+          party: document.getElementById("w-party").value
+        };
+        summary.style.display = "block";
+        summary.innerHTML =
+          "<strong>Reservation request (mock):</strong><br>" +
+          "Space: " + VENUE_LABELS[detail.venue] + "<br>" +
+          "Date: " + detail.date + " at " + detail.time + "<br>" +
+          "Guests: " + detail.party + "<br>" +
+          "<span style='color:var(--stone); font-size:.85rem;'>Your scheduler would capture this. A <code>marksplinter:reservation</code> event was dispatched on <code>window</code>.</span>";
+        // Emit an event a real integration / test harness can listen for.
+        window.dispatchEvent(new CustomEvent("marksplinter:reservation", { detail: detail }));
+      });
+    })();
+  </script>
+</body>
+</html>

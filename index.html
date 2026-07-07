@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marksplinter Vineyard — Willamette Valley Wines</title>
+  <meta name="description" content="Marksplinter Vineyard is a small, family-run producer of Pinot Noir and Pinot Gris in the Dundee Hills of Oregon's Willamette Valley." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="test-banner">Demo site · Marksplinter Vineyard is a fictional winery used for software testing</div>
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Marksplinter<small>Vineyard · Dundee Hills</small></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="wines.html">Our Wines</a></li>
+        <li><a href="club.html">Wine Club</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="visit.html" class="nav-cta">Visit Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Dundee Hills · Willamette Valley, Oregon</p>
+      <h1>Come Sit a While</h1>
+      <p class="lede">Our small-lot, nonexistent Pinot Noir and Pinot Gris, farmed by hand on a south-facing bench above the Willamette River. Three generations, one hillside.</p>
+      <a href="visit.html" class="btn btn--light btn--lg">Plan Your Visit</a>
+    </div>
+  </section>
+
+  <!-- ===== Intro ===== -->
+  <section>
+    <div class="container centered">
+      <p class="eyebrow">Rooted Since 1988</p>
+      <h2>Wine that tastes like this place</h2>
+      <p>Marksplinter is a 34-acre estate vineyard tucked into the red Jory soils of the Dundee Hills. We farm sustainably, pick by hand, and make wine in small batches so every bottle carries the character of the vintage. No shortcuts, no gimmicks — just honest Oregon wine meant to be shared around a table.</p>
+      <a href="about.html" class="btn">Our Story</a>
+    </div>
+  </section>
+
+  <!-- ===== Featured wines ===== -->
+  <section class="section--alt">
+    <div class="container">
+      <div class="centered" style="margin-bottom:54px;">
+        <p class="eyebrow">Current Releases</p>
+        <h2>From Our Cellar</h2>
+        <p style="color:var(--stone); font-size:.95rem; margin:.4rem auto 0; max-width:560px;">Every vintage lovingly imagined in a database near you. No grapes were harmed.</p>
+      </div>
+      <div class="grid grid--3">
+
+        <article class="wine-card">
+          <div class="wine-card__img bottle-red"><span>Estate Pinot Noir</span></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">2022 Vintage</span>
+            <h3 class="wine-card__name">Estate Pinot Noir</h3>
+            <p class="wine-card__appellation">Dundee Hills AVA</p>
+            <p class="wine-card__notes">Bright red cherry, forest floor, and baking spice with silky tannins and a long, savory finish.</p>
+            <div class="wine-card__foot">
+              <span class="wine-card__price">$52</span>
+              <a href="wines.html" class="btn">View</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wine-card">
+          <div class="wine-card__img bottle-white"><span>Estate Pinot Gris</span></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">2024 Vintage</span>
+            <h3 class="wine-card__name">Estate Pinot Gris</h3>
+            <p class="wine-card__appellation">Willamette Valley AVA</p>
+            <p class="wine-card__notes">Crisp and stainless-fermented — green apple, pear, and citrus blossom with a clean, refreshing snap.</p>
+            <div class="wine-card__foot">
+              <span class="wine-card__price">$26</span>
+              <a href="wines.html" class="btn">View</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wine-card">
+          <div class="wine-card__img bottle-rose"><span>Rosé of Pinot Noir</span></div>
+          <div class="wine-card__body">
+            <span class="wine-card__vintage">2024 Vintage</span>
+            <h3 class="wine-card__name">Rosé of Pinot Noir</h3>
+            <p class="wine-card__appellation">Willamette Valley AVA</p>
+            <p class="wine-card__notes">Wild strawberry, watermelon rind, and a whisper of rose petal. Dry, zippy, and endlessly drinkable.</p>
+            <div class="wine-card__foot">
+              <span class="wine-card__price">$28</span>
+              <a href="wines.html" class="btn">View</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div class="centered" style="margin-top:48px;">
+        <a href="wines.html" class="btn btn--solid">Shop All Wines</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Split: vineyard ===== -->
+  <section>
+    <div class="container split">
+      <div class="photo photo--hills has-img" style="background-image:url('images/field-hills.jpg');"></div>
+      <div>
+        <p class="eyebrow">Our Vineyard</p>
+        <h2>It begins in the soil</h2>
+        <p>Our vines are planted in Jory — the iron-rich volcanic soil that gives Dundee Hills Pinot its signature red-fruit lift and silky texture. Older blocks were planted in 1988; younger blocks joined in the early 2000s.</p>
+        <p>We dry-farm where we can, cover-crop between the rows, and let the chickens and sheep do much of the weeding. Healthy ground makes honest wine.</p>
+        <a href="about.html" class="btn">Meet the Family</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Visit callout ===== -->
+  <section class="section--alt">
+    <div class="container">
+      <div class="callout">
+        <p class="eyebrow" style="color:#e7c983;">Tasting Room</p>
+        <h2>Open Thursday–Sunday, 11–5</h2>
+        <p>Pull up a chair on the terrace and taste through our current releases with the people who made them. Reservations recommended for parties of four or more.</p>
+        <a href="visit.html" class="btn btn--light btn--lg">Book a Tasting</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Marksplinter Vineyard</div>
+          <p>14200 NE Marksplinter Lane<br />Dundee, Oregon 97115</p>
+          <p>(503) 555-0142<br /><a href="mailto:hello@marksplintervineyard.example">hello@marksplintervineyard.example</a></p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="wines.html">Our Wines</a></li>
+            <li><a href="club.html">Wine Club</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tasting Room</h4>
+          <ul>
+            <li>Thursday – Sunday</li>
+            <li>11:00 am – 5:00 pm</li>
+            <li>Walk-ins welcome</li>
+            <li><a href="visit.html">Reservations</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Marksplinter Vineyard — a fictional demo site. Please enjoy responsibly.</span>
+        <span>Willamette Valley, Oregon</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
