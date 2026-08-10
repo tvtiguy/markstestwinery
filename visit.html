@@ -11,29 +11,36 @@
   <link rel="stylesheet" href="styles.css" />
 
   <!-- ==============================================================
-       SCHEDULING HAND-OFF  ← change this ONE line to repoint booking.
-       Every "Reserve" / "Book" button on this page hands off to the
-       WADI customer portal below. For now they all go to the SAME URL.
+       SCHEDULING HAND-OFF  ← the WADI customer portal.
+       Every "Reserve" / "Book" button on this page links out to it.
 
-       Each button still carries a data-venue attribute (terrace,
-       hilltop-deck, barrel-room, orchard-table). When the scheduler
-       is ready to accept a venue, uncomment the params block to append
-       ?venue=<id> per button — a one-line change, no markup edits.
+       BASE URL below is the winery's portal landing page, used by the
+       general "Book a Tasting" button. Each venue "Reserve" button
+       appends its own path from VENUE_PATHS, keyed by the button's
+       data-venue attribute. To add or rename a bookable space, edit
+       VENUE_PATHS — no markup changes needed.
 
        This is OPTION 1 (redirect / link-out) — the visible flow.
        OPTION 2 (embedded widget, keeps Marksplinter branding) lives
        UNLINKED at /embed.html — reachable only if you know the URL.
        ============================================================== -->
   <script>
-    // Live booking URL (WADI customer portal). Same destination for all buttons.
+    // Live booking URL (WADI customer portal) — the winery's landing page.
     window.MARKSPLINTER_BOOKING_URL = "https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery";
+
+    // Per-space booking pages, keyed by data-venue.
+    window.MARKSPLINTER_VENUE_PATHS = {
+      "terrace":       "/the-terrace",
+      "hilltop-deck":  "/the-hilltop-deck",
+      "barrel-room":   "/the-barrel-room",
+      "orchard-table": "/the-orchard-table"
+    };
 
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll("[data-booking-link]").forEach(function (a) {
-        var url = window.MARKSPLINTER_BOOKING_URL;
-        // To send the chosen space later, swap the line above for:
-        //   var url = window.MARKSPLINTER_BOOKING_URL + "?venue=" + a.getAttribute("data-venue");
-        a.setAttribute("href", url);
+        var venue = a.getAttribute("data-venue");
+        var path = venue ? window.MARKSPLINTER_VENUE_PATHS[venue] : "";
+        a.setAttribute("href", window.MARKSPLINTER_BOOKING_URL + (path || ""));
       });
     });
   </script>
@@ -86,7 +93,7 @@
             <p class="wine-card__notes">Our classic seated tasting on the covered terrace, looking straight down the valley. A flight of five current releases, rain or shine.</p>
             <div class="wine-card__foot">
               <span style="font-size:.85rem; color:var(--stone);">Thu–Sun, 11–5</span>
-              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery"
+              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery/the-terrace"
                  data-booking-link data-venue="terrace"
                  class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
             </div>
@@ -102,7 +109,7 @@
             <p class="wine-card__notes">An open-air deck at the top of the estate block with 180° views of the Dundee Hills. Best at golden hour with a reserve flight in hand.</p>
             <div class="wine-card__foot">
               <span style="font-size:.85rem; color:var(--stone);">Fri–Sun, 11–5</span>
-              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery"
+              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery/the-hilltop-deck"
                  data-booking-link data-venue="hilltop-deck"
                  class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
             </div>
@@ -118,7 +125,7 @@
             <p class="wine-card__notes">A private, seated tasting among the barrels in our working cellar. Library and single-block reserves poured by a member of the family, with a local cheese board.</p>
             <div class="wine-card__foot">
               <span style="font-size:.85rem; color:var(--stone);">By appointment</span>
-              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery"
+              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery/the-barrel-room"
                  data-booking-link data-venue="barrel-room"
                  class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
             </div>
@@ -134,7 +141,7 @@
             <p class="wine-card__notes">A single shaded table tucked into the heirloom apple orchard. Relaxed and unhurried — pour your flight, spread out a picnic, and stay a while.</p>
             <div class="wine-card__foot">
               <span style="font-size:.85rem; color:var(--stone);">Thu–Sun, 11–5</span>
-              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery"
+              <a href="https://customer-portal-wadi-fd7413cd.vercel.app/marks-test-winery/the-orchard-table"
                  data-booking-link data-venue="orchard-table"
                  class="btn btn--solid ext" target="_blank" rel="noopener">Reserve</a>
             </div>
